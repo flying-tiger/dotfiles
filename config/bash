@@ -15,9 +15,12 @@ alias diff='gvimdiff'
 alias edit='gvim'
 alias ls='ls --color --group-directories-first -Fh'
 alias mkdir='mkdir -p'
+alias nowrite='chmod -R a-w'
 alias path='echo -e ${PATH//:/\\n}'
 alias tree='tree -Csuh'
 alias view='gvim -RM'
+
+unalias ll  # Use function below instead
 
 #----------------------------------------------------------------------
 # Helper Functions
