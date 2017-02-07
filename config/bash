@@ -2,6 +2,8 @@
 # Basic Terminal Configuration
 #----------------------------------------------------------------------
 export PS1="\u | \h | \W $ "
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 
 #----------------------------------------------------------------------
 # Aliases
