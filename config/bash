@@ -13,14 +13,15 @@ alias addx='chmod a+x'
 alias clc='clear && ll'
 alias diff='gvimdiff'
 alias edit='gvim'
-alias ls='ls --color --group-directories-first -Fh'
+alias ls='ls -Fh'
 alias mkdir='mkdir -p'
 alias nowrite='chmod -R a-w'
 alias path='echo -e ${PATH//:/\\n}'
 alias tree='tree -Csuh'
 alias view='gvim -RM'
 
-unalias ll  # Use function below instead
+unalias ll  &> /dev/null  # Clear preset alias, if any (Ubunutu)
+                          # Use function below instead
 
 #----------------------------------------------------------------------
 # Helper Functions
@@ -31,7 +32,7 @@ function cdl {
 }
 function ll  {
   # Create paged listing of directory details
-  ls -lG $* | more
+  ls -l $* | more
 }
 function mcd {
   # Create an cd into new directory
