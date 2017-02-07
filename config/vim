@@ -1,10 +1,15 @@
 "--------------------------------------------------------------------
-" Basic Configurations 
+" Basic Configurations
 "--------------------------------------------------------------------
+filetype plugin indent on
 syntax enable
-set clipboard=unnamed
 set autoindent
-set smartindent
+set clipboard=unnamed
+set expandtab
+set list
+set listchars=tab:>-,trail:.
+set shiftwidth=4
+set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
 
 "--------------------------------------------------------------------
