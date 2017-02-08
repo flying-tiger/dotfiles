@@ -8,6 +8,7 @@ set clipboard=unnamed
 set expandtab
 set list
 set listchars=tab:>-,trail:.
+set nowrap
 set shiftwidth=4
 set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
@@ -27,6 +28,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
     Plug 'scrooloose/nerdtree'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sensible'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
