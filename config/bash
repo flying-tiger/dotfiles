@@ -18,6 +18,7 @@ alias edit='gvim'
 alias ls='ls -Fh'
 alias mkdir='mkdir -p'
 alias nowrite='chmod -R a-w'
+alias open='gnome-open'
 alias path='echo -e ${PATH//:/\\n}'
 alias tree='tree -Csuh'
 alias view='gvim -RM'
@@ -34,7 +35,7 @@ function cdl {
 }
 function ll  {
   # Create paged listing of directory details
-  ls -l $* | sort -sk 1,1 | more
+  ls -l $* | sort -sk 1.1,1.2 | more
 }
 function mcd {
   # Create an cd into new directory
@@ -44,5 +45,4 @@ function mcd {
 #----------------------------------------------------------------------
 # Machine Specific Configuration
 #----------------------------------------------------------------------
-
 

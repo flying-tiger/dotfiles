@@ -9,6 +9,7 @@ set expandtab
 set list
 set listchars=tab:>-,trail:.
 set nowrap
+set number
 set shiftwidth=4
 set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
