@@ -6,13 +6,16 @@ syntax enable
 set autoindent
 set clipboard=unnamed
 set expandtab
+set foldmethod=indent
 set list
 set listchars=tab:>-,trail:.
+set nofoldenable
 set nowrap
 set number
 set shiftwidth=4
 set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
+
 
 "--------------------------------------------------------------------
 " Install Plugin Manger
