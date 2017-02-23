@@ -54,5 +54,6 @@ call plug#end()
 if has("gui_running")
     set background=dark
     colorscheme solarized
+    set guifont=Source\ Code\ Pro\ Light:h13
 endif
 
