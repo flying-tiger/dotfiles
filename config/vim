@@ -12,10 +12,21 @@ set listchars=tab:>-,trail:.
 set nofoldenable
 set nowrap
 set number
+set relativenumber
 set shiftwidth=4
 set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
 
+"--------------------------------------------------------------------
+" Strip Whitespace on Save
+"--------------------------------------------------------------------
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 "--------------------------------------------------------------------
 " Install Plugin Manger
