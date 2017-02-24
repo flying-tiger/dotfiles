@@ -3,5 +3,8 @@
 	co = checkout
 	st = status
 
+[core]
+	editor = vim
+
 [push]
 	default = simple
