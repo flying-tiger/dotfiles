@@ -4,6 +4,7 @@
 export PS1="\u | \h | \W $ "
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
+umask 0027
 
 #----------------------------------------------------------------------
 # Aliases
@@ -40,6 +41,15 @@ function ll  {
 function mcd {
   # Create an cd into new directory
   mkdir $1; cdl $1
+}
+function share {
+  # Sets group-read permissions on all files/directories
+  ROOT=${1:-$(pwd)}
+  GROUP=${2:-$(groups| awk '{print $1;}')}
+  echo "Giving group ${GROUP} read-access to ${ROOT}"
+  chown -R "$USER":"$GROUP" "$ROOT"
+  find "$ROOT" -type f -exec chmod g+r  {} \;
+  find "$ROOT" -type d -exec chmod g+rx {} \;
 }
 
 #----------------------------------------------------------------------
