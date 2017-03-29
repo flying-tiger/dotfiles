@@ -1,10 +1,14 @@
 #----------------------------------------------------------------------
 # Basic Terminal Configuration
 #----------------------------------------------------------------------
-export PS1="\u | \h | \W $ "
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
-umask 0027
+if [ -t 1 ]; then
+    # Only run for terminals with a tty
+    echo "Sourcing dotfiles/config/bash..."
+    export PS1="\u | \h | \W $ "
+    bind '"\e[A":history-search-backward'
+    bind '"\e[B":history-search-forward'
+    umask 0027
+fi
 
 #----------------------------------------------------------------------
 # Aliases
