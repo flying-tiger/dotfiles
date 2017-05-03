@@ -18,8 +18,9 @@ set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
 
 "--------------------------------------------------------------------
-" Strip Whitespace on Save
+" Advanced Configuration
 "--------------------------------------------------------------------
+" Strip Whitespace on Save
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -27,6 +28,9 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Treat *.md as markdown
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 "--------------------------------------------------------------------
 " Install Plugin Manger
