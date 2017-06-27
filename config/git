@@ -1,10 +1,18 @@
 [alias]
 	ci = commit
 	co = checkout
+	dt = difftool
+	ls = branch -a
 	st = status
 
 [core]
 	editor = vim
+
+[diff]
+	tool = gvimdiff
+
+[difftool]
+	prompt = false
 
 [push]
 	default = simple
