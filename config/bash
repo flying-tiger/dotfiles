@@ -55,6 +55,18 @@ function share {
   find "$ROOT" -type f -exec chmod g+r  {} \;
   find "$ROOT" -type d -exec chmod g+rx {} \;
 }
+function vnc {
+  # Usage:  vnc user@server:display
+  # Sets up a tunnel to VNC display on specified server before running
+  # vncviewer. Makes it easy to connect to a remote desktop via SSH.
+  IFS=: read -r vnc_server vnc_display <<< "$1"
+  vnc_socket=$(printf 59%02d $vnc_display)
+  vnc_name=.vnc_tunnel_$$
+  ssh -M -S $vnc_name -fN -L 5900:localhost:$vnc_socket $vnc_server
+  ( vncviewer; ssh -S $vnc_name -O exit $vnc_server; ) &
+  # Open VNC application in background to free the terminal
+}
+
 
 #----------------------------------------------------------------------
 # Machine Specific Configuration
