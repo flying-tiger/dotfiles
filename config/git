@@ -1,9 +1,11 @@
 [alias]
-	ci = commit
-	co = checkout
-	dt = difftool
-	ls = branch -a
-	st = status
+	ci  = commit
+	co  = checkout
+	dt  = difftool
+	lg  = log --graph --oneline --decorate --all
+	lsb = branch -a
+	lsr = remote -v show
+	st  = status
 
 [core]
 	editor = vim
