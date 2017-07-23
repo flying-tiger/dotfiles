@@ -8,6 +8,7 @@ if [ -t 1 ]; then
     bind '"\e[A":history-search-backward'
     bind '"\e[B":history-search-forward'
     umask 0027
+    source ${BASH_SOURCE[0]}_completion
 fi
 
 #----------------------------------------------------------------------
