@@ -40,7 +40,7 @@ function cdl {
 }
 function ll  {
   # Create paged listing of directory details
-  ls -l $* | sort -sk 1.1,1.2 | more
+  ls -l "$@" | sort -sk 1.1,1.2 | more
 }
 function mcd {
   # Create an cd into new directory
