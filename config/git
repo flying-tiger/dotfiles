@@ -6,6 +6,7 @@
 	lsb = branch -a
 	lsr = remote -v show
 	st  = status
+	super-clean = clean -f -d -x
 
 [core]
 	editor = vim
