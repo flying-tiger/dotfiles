@@ -66,6 +66,30 @@ function vnc {
   ( vncviewer; ssh -S $vnc_name -O exit $vnc_server; ) &
   # Open VNC application in background to free the terminal
 }
+function append_path {
+  # useage: append_path  <path_var>  <path_to_add>
+  # Appends the path_to_add to the path_var, but only if it
+  # doesn't already exist.
+  if [[ ":${!1}:" == *":$2:"* ]]; then
+    return
+  elif [ -z "${!1}" ]; then
+    eval "${1}"="\"${2}\""
+  else
+    eval "${1}"="\"${!1}\":\"${2}\""
+  fi
+}
+function prepend_path {
+  # useage: prepend_path  <path_var>  <path_to_add>
+  # Prepends the path_to_add to the path_var, but only if it
+  # doesn't already exist.
+  if [[ ":${!1}:" == *":$2:"* ]]; then
+    return
+  elif [ -z "${!1}" ]; then
+    eval "${1}"="\"${2}\""
+  else
+    eval "${1}"="\"${2}\":\"${!1}\""
+  fi
+}
 
 
 #----------------------------------------------------------------------
