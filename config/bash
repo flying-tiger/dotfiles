@@ -50,11 +50,11 @@ function mcd {
 function share {
   # Sets group-read permissions on all files/directories
   ROOT=${1:-$(pwd)}
-  GROUP=${2:-$(groups| awk '{print $1;}')}
+  GROUP=${2:-$(stat -c "%G" $ROOT)}
   echo "Giving group ${GROUP} read-access to ${ROOT}"
   chown -R "$USER":"$GROUP" "$ROOT"
-  find "$ROOT" -type f -exec chmod g+r  {} \;
-  find "$ROOT" -type d -exec chmod g+rx {} \;
+  find "$ROOT" -type f -exec chmod g+r {} +;
+  find "$ROOT" -type d -exec chmod g+rxs {} +;
 }
 function vnc {
   # Usage:  vnc user@server:display
