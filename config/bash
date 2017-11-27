@@ -47,6 +47,10 @@ function mcd {
   # Create an cd into new directory
   mkdir $1; cdl $1
 }
+function todo {
+  DIRS="${@:-.}"
+  grep --recursive --ignore-case TODO "${DIRS}"
+}
 function share {
   # Sets group-read permissions on all files/directories
   ROOT=${1:-$(pwd)}
