@@ -48,8 +48,11 @@ function mcd {
   mkdir $1; cdl $1
 }
 function todo {
-  DIRS="${@:-.}"
-  grep --recursive --ignore-case TODO "${DIRS}"
+  if [[ $# -ne 0 ]]; then
+    grep --recursive --ignore-case TODO "$@"
+  else
+    grep --recursive --ignore-case TODO .
+  fi
 }
 function share {
   # Sets group-read permissions on all files/directories
@@ -77,7 +80,7 @@ function append_path {
   # doesn't already exist.
   if [[ ":${!1}:" == *":$2:"* ]]; then
     return
-  elif [ -z "${!1}" ]; then
+  elif [[ -z "${!1}" ]]; then
     eval "${1}"="\"${2}\""
   else
     eval "${1}"="\"${!1}\":\"${2}\""
@@ -89,7 +92,7 @@ function prepend_path {
   # doesn't already exist.
   if [[ ":${!1}:" == *":$2:"* ]]; then
     return
-  elif [ -z "${!1}" ]; then
+  elif [[ -z "${!1}" ]]; then
     eval "${1}"="\"${2}\""
   else
     eval "${1}"="\"${2}\":\"${!1}\""
