@@ -54,6 +54,10 @@ function todo {
     grep --recursive --ignore-case TODO .
   fi
 }
+function rgrep {
+  # Recusrive grep starting from current directory
+  grep -R "$@" .
+}
 function share {
   # Sets group-read permissions on all files/directories
   ROOT=${1:-$(pwd)}
