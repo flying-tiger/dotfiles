@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'pboettch/vim-cmake-syntax'
 call plug#end()
 
 "--------------------------------------------------------------------
