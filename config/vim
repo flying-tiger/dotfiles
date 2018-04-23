@@ -18,6 +18,15 @@ set tabstop=4
 set viminfo='100,h,n~/.vim/viminfo
 
 "--------------------------------------------------------------------
+" Custom Mappings
+"--------------------------------------------------------------------
+map <F5> :setlocal spell! spelllang=en_us<CR>
+map <F9> :Goyo <bar> :Limelight!! <bar> :TogglePencil <CR>
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+
+"--------------------------------------------------------------------
 " Advanced Configuration
 "--------------------------------------------------------------------
 " Strip Whitespace on Save
@@ -54,6 +63,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'pboettch/vim-cmake-syntax'
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
+    Plug 'reedes/vim-pencil'
 call plug#end()
 
 "--------------------------------------------------------------------
