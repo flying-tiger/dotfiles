@@ -47,6 +47,10 @@ function mcd {
   # Create an cd into new directory
   mkdir $1; cdl $1
 }
+function plot {
+  # Simple plotting of two column data from stdin
+  gnuplot -e "set key autotitle columnhead; plot '-' with lines" -persist
+}
 function todo {
   if [[ $# -ne 0 ]]; then
     grep --recursive --ignore-case TODO "$@"
