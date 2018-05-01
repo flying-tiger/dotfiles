@@ -1,0 +1,133 @@
+#!MC 1120
+
+$!TWODAXIS
+    VIEWPORTPOSITION {
+        X1 = 11
+        Y1 = 9
+        X2 = 95
+        Y2 = 95
+    }
+    YDETAIL {
+        TITLE {
+            OFFSET = 7.5
+        }
+        AXISLINE {
+            LINETHICKNESS = 0.3
+        }
+        TICKS {
+            LINETHICKNESS = 0.3
+        }
+        GRIDLINES {
+            LINETHICKNESS = 0.3
+        }
+        TICKLABEL {
+            TEXTSHAPE {
+                HEIGHT = 2.5
+            }
+        }
+    }
+    XDETAIL {
+        AXISLINE {
+            LINETHICKNESS = 0.3
+        }
+        TICKS {
+            LINETHICKNESS = 0.3
+        }
+        GRIDLINES {
+            LINETHICKNESS = 0.3
+        }
+        TICKLABEL {
+            TEXTSHAPE {
+                HEIGHT = 2.5
+            }
+        }
+    }
+
+
+$!XYLINEAXIS
+    VIEWPORTPOSITION {
+        X1 = 11
+        Y1 = 9
+        X2 = 95
+        Y2 = 95
+    }
+    YDETAIL {
+        TITLE {
+            OFFSET = 7.5
+        }
+        AXISLINE {
+            LINETHICKNESS = 0.3
+        }
+        TICKS {
+            LINETHICKNESS = 0.3
+        }
+        GRIDLINES {
+            LINETHICKNESS = 0.3
+        }
+        TICKLABEL {
+            TEXTSHAPE {
+                HEIGHT = 2.5
+            }
+        }
+    }
+    XDETAIL {
+        AXISLINE {
+            LINETHICKNESS = 0.3
+        }
+        TICKS {
+            LINETHICKNESS = 0.3
+        }
+        GRIDLINES {
+            LINETHICKNESS = 0.3
+        }
+        TICKLABEL {
+            TEXTSHAPE {
+                HEIGHT = 2.5
+            }
+        }
+    }
+
+$!LINEMAP
+    LINES {
+        LINETHICKNESS = 0.2
+    }
+    SYMBOLS {
+        SYMBOLSHAPE {
+            GEOMSHAPE = CIRCLE
+        }
+        FILLMODE = USELINECOLOR
+        SIZE = 0.5
+    }
+
+$!GLOBALLINEPLOT
+    LEGEND {
+        SHOW = YES
+        TEXTSHAPE {
+            HEIGHT = 2.5
+        }
+        XYPOS {
+            X = 95
+            Y = 95
+        }
+    }
+
+$!GLOBALCONTOUR
+    COLORMAPNAME = 'Diverging - Blue/Yellow/Red'
+    DEFNUMLEVELS = 21
+    LABELS {
+        AUTOLEVELSKIP = 2
+    }
+    LEGEND {
+        XYPOS {
+            X = 95
+            Y = 95
+        }
+        HEADERTEXTSHAPE {
+            ISBOLD = YES
+        }
+        NUMBERTEXTSHAPE {
+            HEIGHT = 2.2
+        }
+    }
+
+

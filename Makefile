@@ -13,5 +13,6 @@ install:
 	mkdir -p ~/.vim/syntax && cp ${CONFIG}/vim_syntax/fortran.vim ~/.vim/syntax
 	git config --global include.path '${CURDIR}/config/git'
 	mkdir -p ${FONT_DIR} && cp fonts/* ${FONT_DIR}
+	ln -sf ${CONFIG}/tecplot ~/.tecplot.cfg
 
 
