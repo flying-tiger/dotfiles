@@ -9,6 +9,7 @@ if [ -t 1 ]; then
     bind '"\e[B":history-search-forward'
     umask 0027
     source ${BASH_SOURCE[0]}_completion
+    shopt -s direxpand
 fi
 
 #----------------------------------------------------------------------
@@ -22,6 +23,10 @@ alias clc='clear && ll'
 alias diff='gvim -d'
 alias edit='gvim'
 alias ls='ls -Fh'
+alias ma='module avail'
+alias madd='module add'
+alias ml='module list'
+alias mrm='module rm'
 alias mkdir='mkdir -p'
 alias nowrite='chmod -R a-w'
 alias open='gnome-open'
