@@ -2,11 +2,11 @@
 	ci  = commit
 	co  = checkout
 	dt  = difftool
+	dw  = diff -w
 	lg  = log --graph --oneline --decorate --all
 	lsb = branch -a
 	lsr = remote -v show
 	st  = status
-	super-clean = clean -f -d -x
 
 [core]
 	editor = vim
