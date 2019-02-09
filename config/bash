@@ -10,6 +10,7 @@ if [ -t 1 ]; then
     umask 0027
     source ${BASH_SOURCE[0]}_completion
     shopt -s direxpand
+    echo -ne "\033]0;$(hostname)\007"
 fi
 
 #----------------------------------------------------------------------
