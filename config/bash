@@ -68,6 +68,9 @@ function rgrep {
   # Recusrive grep starting from current directory
   grep -R "$@" .
 }
+function members {
+  grep "^$1:" /etc/group | cut -d: -f4 | tr ',' '\n' | column
+}
 function share {
   # Sets group-read permissions on all files/directories
   ROOT=${1:-$(pwd)}
@@ -111,6 +114,19 @@ function prepend_path {
   else
     eval "${1}"="\"${2}\":\"${!1}\""
   fi
+}
+function indirs {
+  # useage: indirs dir1 dir2 ... -- cmd
+  # Executes a command in a series of directories
+  dirs=()
+  for arg in "$@"; do
+    shift
+    [ "$arg" == "--" ] && break
+    dirs+=( "$arg" )
+  done
+  for dir in "${dirs[@]}"; do
+    (cd $dir && eval "$@")
+  done
 }
 
 
