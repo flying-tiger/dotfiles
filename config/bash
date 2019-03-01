@@ -69,7 +69,19 @@ function rgrep {
   grep -R "$@" .
 }
 function members {
-  grep "^$1:" /etc/group | cut -d: -f4 | tr ',' '\n' | column
+  if [ "$#" -le "0" ]; then
+    echo "usage: members gid1 [gid2 [gid3 ...]]"
+  elif [ "$#" -eq "1" ]; then
+    grep "^$1:" /etc/group | cut -d: -f4 | tr ',' '\n' | column
+  else
+    echo
+    for gid in "$@"; do
+      echo "Group $gid"
+      echo "--------------"
+      grep "^$gid:" /etc/group | cut -d: -f4 | tr ',' '\n' | column
+      echo
+    done
+  fi
 }
 function share {
   # Sets group-read permissions on all files/directories
