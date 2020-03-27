@@ -41,8 +41,9 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " Treat *.md as markdown
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
-" Treat *.ixx as C++
+" Treat *.ixx *.tpp as C++
 autocmd BufNewFile,BufFilePre,BufRead *.ixx set filetype=cpp
+autocmd BufNewFile,BufFilePre,BufRead *.tpp set filetype=cpp
 
 "--------------------------------------------------------------------
 " Install Plugin Manger
