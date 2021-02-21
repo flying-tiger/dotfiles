@@ -89,12 +89,19 @@ function members {
 }
 function share {
   # Sets group-read permissions on all files/directories
-  ROOT=${1:-$(pwd)}
+  if [ "$#" -le "0" ]; then
+    echo "usage: share path [gid]"
+    return
+  fi
+  ROOT=${1}
   GROUP=${2:-$(stat -c "%G" $ROOT)}
-  echo "Giving group ${GROUP} read-access to ${ROOT}"
-  chown -R "$USER":"$GROUP" "$ROOT"
-  find "$ROOT" -type f -exec chmod g+r {} +;
-  find "$ROOT" -type d -exec chmod g+rxs {} +;
+  read -p "Give group ${GROUP} read-access to ${ROOT}? [Y/N] " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    chown -R "$USER":"$GROUP" "$ROOT"
+    find "$ROOT" -type f -exec chmod g+r {} +;
+    find "$ROOT" -type d -exec chmod g+rxs {} +;
+  fi
 }
 function vnc {
   # Usage:  vnc user@server:display
