@@ -55,7 +55,11 @@ function mcd {
 }
 function plot {
   # Simple plotting of two column data from stdin
-  gnuplot -e "set key autotitle columnhead; plot '-' with lines" -persist
+  gnuplot -e "set terminal x11; plot '-' with lines" -persist
+}
+function plot_logy {
+  # Simple plotting of two column data from stdin (semilog y)
+  gnuplot -e "set terminal x11; set logscale y; plot '-' with lines" -persist
 }
 function todo {
   if [[ $# -ne 0 ]]; then
