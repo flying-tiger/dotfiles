@@ -7,6 +7,7 @@ else
   FONT_DIR := ~/Library/Fonts
 endif
 
+.PHONY:
 install: utils/renameat | bin
 	grep -qF 'source ${CONFIG}/bash' ~/.bashrc || echo 'source ${CONFIG}/bash' >> ~/.bashrc
 	grep -qF 'source ${CONFIG}/vim'  ~/.vimrc  || echo 'source ${CONFIG}/vim'  >> ~/.vimrc
@@ -15,6 +16,10 @@ install: utils/renameat | bin
 	mkdir -p ${FONT_DIR} && cp fonts/* ${FONT_DIR}
 	ln -sf ${CONFIG}/tecplot ~/.tecplot.cfg
 	cp utils/renameat bin
+
+.PHONY:
+clean:
+	git clean -xdf
 
 utils/renameat: utils/renameat.c
 

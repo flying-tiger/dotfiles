@@ -145,6 +145,11 @@ function indirs {
   done
 }
 
+#----------------------------------------------------------------------
+# Global Configuration
+#----------------------------------------------------------------------
+export DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+prepend_path PATH "${DOTFILES_ROOT}/bin"
 
 #----------------------------------------------------------------------
 # Machine Specific Configuration
