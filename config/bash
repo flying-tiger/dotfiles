@@ -20,20 +20,11 @@ alias ..='cdl ..'
 alias ...='cdl ../..'
 alias ....='cdl ../../..'
 alias addx='chmod a+x'
-alias clc='clear && ll'
-alias diff='gvim -d'
-alias edit='gvim'
 alias ls='ls -Fh'
-alias ma='module avail'
-alias madd='module add'
-alias ml='module list'
-alias mrm='module rm'
 alias mkdir='mkdir -p'
 alias nowrite='chmod -R a-w'
-alias open='gnome-open'
 alias path='echo -e ${PATH//:/\\n}'
 alias tree='tree -Csuh'
-alias view='gvim -RM'
 
 unalias ll  &> /dev/null  # Clear preset alias, if any (Ubunutu)
                           # Use function below instead
@@ -62,15 +53,11 @@ function plot_logy {
   gnuplot -e "set terminal x11; set logscale y; plot '-' with lines" -persist
 }
 function todo {
-  if [[ $# -ne 0 ]]; then
-    grep --recursive --ignore-case TODO "$@"
-  else
-    grep --recursive --ignore-case TODO .
-  fi
+  rgrep --ignore-case TODO "$@"  
 }
 function rgrep {
   # Recusrive grep starting from current directory
-  grep -R "$@" .
+  grep -R --exclude-dir='.?*' "$@"  
 }
 function members {
   if [ "$#" -le "0" ]; then
@@ -102,17 +89,6 @@ function share {
     find "$ROOT" -type f -exec chmod g+r {} +;
     find "$ROOT" -type d -exec chmod g+rxs {} +;
   fi
-}
-function vnc {
-  # Usage:  vnc user@server:display
-  # Sets up a tunnel to VNC display on specified server before running
-  # vncviewer. Makes it easy to connect to a remote desktop via SSH.
-  IFS=: read -r vnc_server vnc_display <<< "$1"
-  vnc_socket=$(printf 59%02d $vnc_display)
-  vnc_name=.vnc_tunnel_$$
-  ssh -M -S $vnc_name -fN -L 5900:localhost:$vnc_socket $vnc_server
-  ( vncviewer; ssh -S $vnc_name -O exit $vnc_server; ) &
-  # Open VNC application in background to free the terminal
 }
 function append_path {
   # useage: append_path  <path_var>  <path_to_add>
