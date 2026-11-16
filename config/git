@@ -1,11 +1,10 @@
 [alias]
-	ci  = commit
-	co  = checkout
 	dt  = difftool
 	dw  = diff -w
-	lg  = log --graph --oneline --decorate --all
+	lg  = log --graph --oneline --decorate
 	lsb = branch -a
 	lsr = remote -v show
+	lst = tag -n -l
 	st  = status
 
 [core]
